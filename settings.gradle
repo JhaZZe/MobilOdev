@@ -1,0 +1,2 @@
+rootProject.name = "com.eraykart.odev"
+include ':app'
