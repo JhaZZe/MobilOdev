@@ -31,7 +31,7 @@ class MainViewModel(
         try {
             if (hasInternetConnection()) {
                 val response = mainRepository.getUsers()
-                Log.i("USER_VM", response.toString())
+                Log.i("USER", response.toString())
                 userRes.postValue(handleGetUserResponse(response))
             } else {
                 userRes.postValue(Resource.Error("Lütfen internet bağlantınızı kontrol ediniz."))

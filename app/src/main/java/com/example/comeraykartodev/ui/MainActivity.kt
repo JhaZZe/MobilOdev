@@ -2,6 +2,7 @@ package com.example.comeraykartodev.ui
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
 import android.view.View
@@ -15,7 +16,7 @@ import com.example.comeraykartodev.R
 import com.example.comeraykartodev.data.repository.MainRepository
 import com.example.comeraykartodev.ui.base.MainViewModelProviderFactory
 import com.example.comeraykartodev.ui.vm.MainViewModel
-import kotlinx.android.synthetic.main.activity_main.*
+import kotlinx.android.synthetic.main.activity_main.*;
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,14 +28,15 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         this.window.addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN)
-
-        navController = Navigation.findNavController(this, R.id.ac_ma_nav_host_fragment)
-        NavigationUI.setupActionBarWithNavController(this, navController)
-
         val mainRepository = MainRepository()
         val viewModelProviderFactory = MainViewModelProviderFactory(application, mainRepository)
         mainViewModel =
             ViewModelProvider(this, viewModelProviderFactory).get(MainViewModel::class.java)
+        Log.i("VIEW_MODEL", mainViewModel.toString())
+
+        navController = Navigation.findNavController(this, R.id.ac_ma_nav_host_fragment)
+        NavigationUI.setupActionBarWithNavController(this, navController)
+
     }
 
     override fun onSupportNavigateUp(): Boolean {

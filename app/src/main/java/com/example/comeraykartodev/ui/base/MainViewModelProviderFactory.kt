@@ -5,7 +5,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.example.comeraykartodev.data.repository.MainRepository
 import com.example.comeraykartodev.ui.vm.MainViewModel
-
 class MainViewModelProviderFactory(
     val app: Application,
     private val mainRepository: MainRepository
